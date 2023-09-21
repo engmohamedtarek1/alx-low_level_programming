@@ -1,32 +1,26 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * _strncpy - a function that copys the strings.
- * @dest: an input string
- * @src: an input string
- * @n: an input integer
- * Return: A pointer to the resulting string
+ *_strncpy - function that copies a string
+ *
+ * @src: The source of strings
+ * @dest: The destination of the string
+ * @n: The length of int
+ *
+ * Return: pointer to the resulting string dest
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int srclen = 0, i = 0;
-	char *temp = dest, *start = src;
+int i;
 
-	while (*src)
+	for (i = 0; i < n && *(src + i); i++)
 	{
-		srclen++;
-		src++;
+		*(dest + i) = *(src + i);
 	}
-
-	srclen++;
-
-	if (n > srclen)
-		n = srclen;
-
-	src = start;
-
 	for (; i < n; i++)
-		*dest++ = *src++;
+	{
+	*(dest + i) = '\0';
+	}
+	return (dest);
 
-	return (temp);
 }
